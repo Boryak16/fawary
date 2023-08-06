@@ -8,7 +8,7 @@ class ShoppingCart {
         items = new ArrayList<>();
     }
 
-    public void addItem(Product product) {
+    public void addItem(String product) {
         items.add(product);
     }
 

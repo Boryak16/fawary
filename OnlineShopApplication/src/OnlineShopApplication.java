@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class OnlineShopApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args, String[] selectedProducts) {
         Scanner prod = new Scanner(System.in);
         System.out.println(
                         "1.prod1\n" +
@@ -21,31 +21,15 @@ public class OnlineShopApplication {
         Product product5 = new Product("Prod 5", 1);
         Product product6 = new Product("Prod 6", 1);
         ShoppingCart cart = new ShoppingCart();
-switch (num)
-{
-    case 1 :
 
-        cart.addItem(product1);
-        break;
-    case 2:
-        cart.addItem(product2);
-        break;
-    case 3:
-        cart.addItem(product3);
-        break;
-    case 4:
-        cart.addItem(product4);
-        break;
-    case 5:
-        cart.addItem(product5);
-        break;
-    case 6:
-        cart.addItem(product6);
-
-        break;
-    default:
-        throw new IllegalStateException("Unexpected value: " + num);
-}
+        for (String str : selectedProducts) {
+            num = Integer.parseInt(str);
+if (num < 1 || num > 6) {
+ throw new IllegalStateException("Invalid product number: " + num);
+ }
+ String product = selectedProducts[num-1];
+cart.addItem(product);
+        }
 
         System.out.println("Total Cost in the Shopping Cart: $" + cart.getTotalCost());
 
